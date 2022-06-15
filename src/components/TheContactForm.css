@@ -38,13 +38,19 @@
   background-color: orangered;
 }
 
+.message {
+  color: #2ecc40;
+  font-size: 1.2rem;
+}
+
 @media screen and (min-width: 500px) {
   .form {
     width: 300px;
   }
 
   .form__label,
-  .form__input {
+  .form__input,
+  .message {
     font-size: 1.4rem;
   }
 }

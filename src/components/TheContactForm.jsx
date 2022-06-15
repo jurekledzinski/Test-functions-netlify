@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './TheContactForm.css';
 
 const TheContactForm = () => {
@@ -9,6 +9,7 @@ const TheContactForm = () => {
     e.preventDefault();
     const checkArr = Object.values(email);
     const checkIsEmpty = checkArr.find((item) => item === '');
+
     if (!isNaN(checkIsEmpty)) return;
 
     try {
@@ -24,8 +25,6 @@ const TheContactForm = () => {
 
       const data = await response.json();
 
-      console.log(data, 'Data from server');
-
       setMessage(data.message);
 
       setEmail({ name: '', email: '', message: '' });
@@ -33,6 +32,11 @@ const TheContactForm = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const idTimout = setTimeout(() => setMessage(''), 2000);
+    return () => clearTimeout(idTimout);
+  }, [message]);
 
   return (
     <>
@@ -78,11 +82,7 @@ const TheContactForm = () => {
         </div>
         <button className="form__button">Send Message</button>
       </form>
-      {message && (
-        <div>
-          <p>{message}</p>
-        </div>
-      )}
+      {message && <p className="message">{message}</p>}
     </>
   );
 };
