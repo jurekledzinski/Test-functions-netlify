@@ -7,13 +7,9 @@ const TheContactForm = () => {
 
   const handleSubmitForm = async (e) => {
     e.preventDefault();
-    console.log('Submit form');
     const checkArr = Object.values(email);
-    console.log(checkArr);
     const checkIsEmpty = checkArr.find((item) => item === '');
-    console.log(checkIsEmpty, 'checkIsEmpty', isNaN(checkIsEmpty));
     if (!isNaN(checkIsEmpty)) return;
-    console.log(email);
 
     try {
       const reqOption = {
