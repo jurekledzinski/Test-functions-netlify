@@ -30,9 +30,9 @@ const TheContactForm = () => {
 
       const { data } = dataResponse;
 
-      console.log(JSON.parse(data), 'Data from server');
+      console.log(data, 'Data from server');
 
-      setMessage(JSON.parse(data));
+      setMessage(data);
 
       setEmail({ name: '', email: '', message: '' });
     } catch (error) {
