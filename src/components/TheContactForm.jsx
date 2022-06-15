@@ -26,11 +26,13 @@ const TheContactForm = () => {
 
       const response = await fetch(url, reqOption);
 
-      const data = await response.json();
+      const dataResponse = await response.json();
 
-      console.log(data, 'Data from server');
+      const { data } = dataResponse;
 
-      setMessage(data);
+      console.log(JSON.parse(data), 'Data from server');
+
+      setMessage(JSON.parse(data));
 
       setEmail({ name: '', email: '', message: '' });
     } catch (error) {
@@ -84,9 +86,9 @@ const TheContactForm = () => {
       </form>
       {message && (
         <div>
-          <p>{message.data.name}</p>
-          <p>{message.data.email}</p>
-          <p>{message.data.message}</p>
+          <p>{message.name}</p>
+          <p>{message.email}</p>
+          <p>{message.message}</p>
         </div>
       )}
     </>
