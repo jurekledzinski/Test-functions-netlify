@@ -1,5 +1,5 @@
 exports.handler = async function (event, context) {
-  console.log(event, 'event');
+  console.log(JSON.parse(event.body), 'event');
   console.log(context, 'context');
   return {
     statusCode: 200,
