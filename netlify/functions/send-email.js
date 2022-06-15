@@ -82,7 +82,7 @@ exports.handler = async function (event, context) {
     },
   });
 
-  console.log(transporter, 'transporter nodemailer');
+  console.log(process.env.REACT_APP_EMAIL_SEND_TO, 'email send to');
 
   transporter.sendMail(
     {
@@ -96,21 +96,9 @@ exports.handler = async function (event, context) {
       if (err) {
         console.log(err, 'ERROR transporter');
         console.log(info, 'INFO transporter');
-        return {
-          statusCode: 404,
-          body: JSON.stringify({
-            data: 'Something went wrong, please try later',
-          }),
-        };
       }
 
-      let message = 'Email has been sent';
-      return {
-        statusCode: 200,
-        body: JSON.stringify({
-          data: message,
-        }),
-      };
+      //   let message = 'Email has been sent';
     }
   );
 
