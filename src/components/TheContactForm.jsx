@@ -28,11 +28,9 @@ const TheContactForm = () => {
 
       const dataResponse = await response.json();
 
-      const { data } = dataResponse;
+      console.log(dataResponse, 'Data from server');
 
-      console.log(data, 'Data from server');
-
-      setMessage(data);
+      setMessage(dataResponse);
 
       setEmail({ name: '', email: '', message: '' });
     } catch (error) {

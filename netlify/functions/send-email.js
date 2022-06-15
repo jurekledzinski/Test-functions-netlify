@@ -87,9 +87,7 @@ exports.handler = async function (event, context) {
     html: output,
   });
 
-  console.log(info.response, 'info response');
-
-  if (info.response === '250 OK , completed') {
+  if (info.response.includes('250')) {
     return {
       statusCode: 200,
       body: 'Email has been sent',
