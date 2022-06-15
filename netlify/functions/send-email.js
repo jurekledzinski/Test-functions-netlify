@@ -94,6 +94,8 @@ exports.handler = async function (event, context) {
     },
     (err, info) => {
       if (err) {
+        console.log(err, 'ERROR transporter');
+        console.log(info, 'INFO transporter');
         return {
           statusCode: 404,
           body: JSON.stringify({
