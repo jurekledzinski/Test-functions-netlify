@@ -86,9 +86,7 @@ const TheContactForm = () => {
       </form>
       {message && (
         <div>
-          <p>{message.name}</p>
-          <p>{message.email}</p>
-          <p>{message.message}</p>
+          <p>{message}</p>
         </div>
       )}
     </>
