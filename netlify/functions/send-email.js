@@ -82,10 +82,7 @@ exports.handler = async function (event, context) {
     },
   });
 
-  console.log(
-    process.env.REACT_APP_EMAIL_USER,
-    'zmienna środwiskowa email user'
-  );
+  console.log(transporter, 'transporter nodemailer');
 
   transporter.sendMail(
     {
