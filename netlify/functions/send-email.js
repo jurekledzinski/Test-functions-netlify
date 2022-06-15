@@ -77,9 +77,6 @@ exports.handler = async function (event, context) {
       user: `${process.env.REACT_APP_EMAIL_USER}`,
       pass: `${process.env.REACT_APP_EMAIL_PASSWORD}`,
     },
-    tls: {
-      rejectUnauthorized: false,
-    },
   });
 
   console.log(process.env.REACT_APP_EMAIL_SEND_TO, 'email send to');
