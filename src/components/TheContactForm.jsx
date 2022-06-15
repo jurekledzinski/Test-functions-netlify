@@ -75,7 +75,7 @@ const TheContactForm = () => {
         ></textarea>
       </div>
       <button className="form__button">Send Message</button>
-      {message && <div>{message}</div>}
+      {message && <div>{JSON.stringify(message)}</div>}
     </form>
   );
 };
