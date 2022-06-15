@@ -22,11 +22,13 @@ const TheContactForm = () => {
 
       const response = await fetch(url, reqOption);
 
-      const dataResponse = await response.json();
+      const data = await response.json();
 
-      console.log(dataResponse, 'Data from server');
+      const { message } = data;
 
-      setMessage(dataResponse);
+      console.log(data, 'Data from server');
+
+      setMessage(message);
 
       setEmail({ name: '', email: '', message: '' });
     } catch (error) {

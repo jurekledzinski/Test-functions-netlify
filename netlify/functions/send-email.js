@@ -89,12 +89,12 @@ exports.handler = async function (event) {
   if (info.response.includes('250')) {
     return {
       statusCode: 200,
-      body: 'Email has been sent',
+      body: { message: 'Email has been sent' },
     };
   }
 
   return {
     statusCode: 400,
-    body: 'Something went wrong, please try later!',
+    body: { message: 'Something went wrong, please try later!' },
   };
 };
