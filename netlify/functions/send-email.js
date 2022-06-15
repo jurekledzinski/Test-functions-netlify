@@ -79,8 +79,6 @@ exports.handler = async function (event, context) {
     },
   });
 
-  console.log(process.env.REACT_APP_EMAIL_SEND_TO, 'email send to');
-
   let info = await transporter.sendMail({
     from: `"Message from portfolio" <${process.env.REACT_APP_EMAIL_USER}>`,
     to: `${process.env.REACT_APP_EMAIL_SEND_TO}`,
@@ -89,10 +87,9 @@ exports.handler = async function (event, context) {
     html: output,
   });
 
-  console.log(info, 'INFO');
-  console.log(nodemailer.getTestMessageUrl(info));
+  console.log(info.response, 'info response');
 
-  if (info.messageId) {
+  if (info.response === '250 OK , completed') {
     return {
       statusCode: 200,
       body: 'Email has been sent',
