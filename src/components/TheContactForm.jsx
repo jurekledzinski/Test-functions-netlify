@@ -40,6 +40,7 @@ const TheContactForm = () => {
 
   return (
     <>
+      {message && <p className="message">{message}</p>}
       <form className="form" onSubmit={handleSubmitForm}>
         <div className="form__input-wrapper">
           <label className="form__label">Name:</label>
@@ -82,7 +83,6 @@ const TheContactForm = () => {
         </div>
         <button className="form__button">Send Message</button>
       </form>
-      {message && <p className="message">{message}</p>}
     </>
   );
 };
