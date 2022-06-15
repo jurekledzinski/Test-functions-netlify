@@ -82,6 +82,11 @@ exports.handler = async function (event, context) {
     },
   });
 
+  console.log(
+    process.env.REACT_APP_EMAIL_USER,
+    'zmienna środwiskowa email user'
+  );
+
   transporter.sendMail(
     {
       from: `"Message portfolio from" <${process.env.REACT_APP_EMAIL_USER}>`,
