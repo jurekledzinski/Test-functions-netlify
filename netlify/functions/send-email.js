@@ -81,23 +81,15 @@ exports.handler = async function (event, context) {
 
   console.log(process.env.REACT_APP_EMAIL_SEND_TO, 'email send to');
 
-  transporter.sendMail(
-    {
-      from: `"Message portfolio from" <${process.env.REACT_APP_EMAIL_USER}>`,
-      to: `${process.env.REACT_APP_EMAIL_SEND_TO}`,
-      subject: 'Portfolio message',
-      text: 'Message',
-      html: output,
-    },
-    (err, info) => {
-      if (err) {
-        console.log(err, 'ERROR transporter');
-        console.log(info, 'INFO transporter');
-      }
+  let info = await transporter.sendMail({
+    from: `"Message portfolio from" <${process.env.REACT_APP_EMAIL_USER}>`,
+    to: `${process.env.REACT_APP_EMAIL_SEND_TO}`,
+    subject: 'Portfolio message',
+    text: 'Message',
+    html: output,
+  });
 
-      //   let message = 'Email has been sent';
-    }
-  );
+  console.log(info, 'INFO');
 
   return {
     statusCode: 200,
