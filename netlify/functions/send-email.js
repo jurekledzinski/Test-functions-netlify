@@ -96,8 +96,7 @@ exports.handler = async function (event, context) {
 
   return {
     statusCode: 400,
-    body: JSON.stringify({
-      data: 'Something went wrong, please try later!',
+    body: 'Something went wrong, please try later!',
     }),
   };
 };
