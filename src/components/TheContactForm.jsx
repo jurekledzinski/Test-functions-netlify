@@ -32,51 +32,62 @@ const TheContactForm = () => {
 
       setEmail({ name: '', email: '', message: '' });
     } catch (error) {
-      setMessage(error.message);
+      console.log(error);
     }
   };
 
   return (
-    <form className="form" onSubmit={handleSubmitForm}>
-      <div className="form__input-wrapper">
-        <label className="form__label">Name:</label>
-        <input
-          type="text"
-          className="form__input"
-          placeholder="Your name"
-          onChange={(e) =>
-            setEmail((prevValue) => ({ ...prevValue, name: e.target.value }))
-          }
-          value={email.name}
-        />
-      </div>
-      <div className="form__input-wrapper">
-        <label className="form__label">Email:</label>
-        <input
-          type="text"
-          className="form__input"
-          placeholder="Your email"
-          onChange={(e) =>
-            setEmail((prevValue) => ({ ...prevValue, email: e.target.value }))
-          }
-          value={email.email}
-        />
-      </div>{' '}
-      <div className="form__input-wrapper">
-        <label className="form__label">Message:</label>
-        <textarea
-          className="form__input"
-          rows="6"
-          placeholder="Your message"
-          onChange={(e) =>
-            setEmail((prevValue) => ({ ...prevValue, message: e.target.value }))
-          }
-          value={email.message}
-        ></textarea>
-      </div>
-      <button className="form__button">Send Message</button>
-      {message && <div>{JSON.stringify(message)}</div>}
-    </form>
+    <>
+      <form className="form" onSubmit={handleSubmitForm}>
+        <div className="form__input-wrapper">
+          <label className="form__label">Name:</label>
+          <input
+            type="text"
+            className="form__input"
+            placeholder="Your name"
+            onChange={(e) =>
+              setEmail((prevValue) => ({ ...prevValue, name: e.target.value }))
+            }
+            value={email.name}
+          />
+        </div>
+        <div className="form__input-wrapper">
+          <label className="form__label">Email:</label>
+          <input
+            type="text"
+            className="form__input"
+            placeholder="Your email"
+            onChange={(e) =>
+              setEmail((prevValue) => ({ ...prevValue, email: e.target.value }))
+            }
+            value={email.email}
+          />
+        </div>{' '}
+        <div className="form__input-wrapper">
+          <label className="form__label">Message:</label>
+          <textarea
+            className="form__input"
+            rows="6"
+            placeholder="Your message"
+            onChange={(e) =>
+              setEmail((prevValue) => ({
+                ...prevValue,
+                message: e.target.value,
+              }))
+            }
+            value={email.message}
+          ></textarea>
+        </div>
+        <button className="form__button">Send Message</button>
+      </form>
+      {message && (
+        <div>
+          <p>{message.data.name}</p>
+          <p>{message.data.email}</p>
+          <p>{message.data.message}</p>
+        </div>
+      )}
+    </>
   );
 };
 
