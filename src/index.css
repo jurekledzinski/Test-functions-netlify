@@ -21,8 +21,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  width: 100%;
+}
+
 @media screen and (min-width: 500px) {
   body {
     padding: 0;
+  }
+
+  #root {
+    width: initial;
   }
 }
