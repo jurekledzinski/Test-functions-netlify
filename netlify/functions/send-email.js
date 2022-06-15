@@ -1,8 +1,7 @@
 const nodemailer = require('nodemailer');
 
-exports.handler = async function (event, context) {
+exports.handler = async function (event) {
   const body = JSON.parse(event.body);
-  console.log(body, 'event body');
 
   const output = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB">
@@ -97,6 +96,5 @@ exports.handler = async function (event, context) {
   return {
     statusCode: 400,
     body: 'Something went wrong, please try later!',
-    }),
   };
 };
