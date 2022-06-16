@@ -20,6 +20,8 @@ const App = () => {
     handleGetAllEmails();
   }, [dispatch]);
 
+  console.log(allEmails);
+
   return (
     <div className="app">
       <TheContactForm />
