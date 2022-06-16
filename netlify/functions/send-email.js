@@ -10,8 +10,8 @@ exports.handler = async function (event) {
   //   await connectDb(process.env.REACT_APP_DB);
   console.log(mongoose.connection.readyState, 'Ready state open');
 
-  const email = await Email.create(body);
-  console.log(email, 'Email database');
+  await Email.create(body);
+
   //   mongoose.connection.close();
   //   console.log(mongoose.connection.readyState, 'Ready state close');
   //   mongoose.connection.close();
