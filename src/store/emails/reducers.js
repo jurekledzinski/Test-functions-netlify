@@ -9,6 +9,7 @@ export const emailSlice = createSlice({
     },
     setEmails: (state, action) => {
       state = action.payload;
+      console.log(action);
     },
   },
 });
