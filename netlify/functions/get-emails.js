@@ -7,6 +7,8 @@ connectDb(process.env.REACT_APP_DB);
 exports.handler = async function (event) {
   console.log(mongoose.connection.readyState, 'Ready state get emails');
   const allEmails = await Email.find({});
+  delete allEmails.__v;
+
   return {
     statusCode: 200,
     body: JSON.stringify({ value: allEmails }),
