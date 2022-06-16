@@ -5,11 +5,10 @@ export const emailSlice = createSlice({
   initialState: [],
   reducers: {
     addEmail: (state, action) => {
-      state.unshift(action.payload);
+      return state.unshift(action.payload);
     },
     setEmails: (state, action) => {
-      state = action.payload;
-      console.log(action);
+      return (state = action.payload);
     },
   },
 });
