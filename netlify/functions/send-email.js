@@ -1,15 +1,15 @@
 const nodemailer = require('nodemailer');
 const connectDb = require('../../db/connectDb');
 const mongoose = require('mongoose');
-// const Email = require('../../models/email');
+const Email = require('../../models/email');
 
 exports.handler = async function (event) {
   const body = JSON.parse(event.body);
   await connectDb(process.env.REACT_APP_DB);
   console.log(mongoose.connection.readyState, 'Ready state');
 
-  //   const email = await Email.create({ name: 'ok', email: 'em', message: 'msg' });
-  //   console.log(email, 'Email database');
+  const email = await Email.create({ name: 'ok', email: 'em', message: 'msg' });
+  console.log(email, 'Email database');
   //   mongoose.connection.close();
 
   const output = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
