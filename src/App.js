@@ -15,8 +15,7 @@ const App = () => {
       const url = '/.netlify/functions/get-emails';
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
-      dispatch(setEmails(data));
+      dispatch(setEmails(data.value));
     };
     handleGetAllEmails();
   }, [dispatch]);
