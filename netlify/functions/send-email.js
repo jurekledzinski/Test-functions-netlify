@@ -3,8 +3,6 @@ const connectDb = require('../../db/connectDb');
 const mongoose = require('mongoose');
 const Email = require('../../models/email');
 
-console.log(connectDb, 'connectDb');
-
 exports.handler = async function (event) {
   const body = JSON.parse(event.body);
   await connectDb(process.env.REACT_APP_DB);
