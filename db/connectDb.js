@@ -10,4 +10,4 @@ const connectDb = async (url) => {
     });
 };
 
-connectDb(process.env.REACT_APP_DB);
+module.exports = connectDb;
