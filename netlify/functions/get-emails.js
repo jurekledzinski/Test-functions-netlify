@@ -9,6 +9,6 @@ exports.handler = async function (event) {
   const allEmails = await Email.find({});
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: allEmails }),
+    body: JSON.stringify({ value: allEmails }),
   };
 };
