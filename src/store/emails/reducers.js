@@ -5,7 +5,7 @@ export const emailSlice = createSlice({
   initialState: [],
   reducers: {
     addEmail: (state, action) => {
-      return state.unshift(action.payload);
+      state.unshift(action.payload);
     },
     setEmails: (state, action) => {
       return (state = action.payload);
