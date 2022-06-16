@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
+const connectDb = require('../../db/connectDb');
 // const Email = require('../../models/email');
+
+connectDb(process.env.REACT_APP_DB);
 
 exports.handler = async function (event) {
   console.log(event);
