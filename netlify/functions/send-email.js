@@ -5,9 +5,12 @@ const Email = require('../../models/email');
 exports.handler = async function (event) {
   const body = JSON.parse(event.body);
 
-  const email = await Email.create(body);
-  console.log(email, 'Email database');
-  mongoose.connection.close();
+  console.log(mongoose);
+  console.log(Email, 'Email');
+
+  //   const email = await Email.create(body);
+  //   console.log(email, 'Email database');
+  //   mongoose.connection.close();
 
   const output = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB">
