@@ -9,6 +9,8 @@ exports.handler = async function (event) {
     console.log('mongoose connected', item);
   });
 
+  console.log(mongoose.connection.readyState, 'Ready state');
+
   //   const email = await Email.create({ name: 'ok', email: 'em', message: 'msg' });
   //   console.log(email, 'Email database');
   //   mongoose.connection.close();
