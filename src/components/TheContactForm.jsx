@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './TheContactForm.css';
+
+import { addEmail } from '../store/emails/reducers';
 
 const TheContactForm = () => {
   const [email, setEmail] = useState({ name: '', email: '', message: '' });
   const [message, setMessage] = useState(null);
 
+  const dispatch = useDispatch();
+
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     const checkArr = Object.values(email);
     const checkIsEmpty = checkArr.find((item) => item === '');
-
     if (!isNaN(checkIsEmpty)) return;
 
     try {
@@ -26,6 +30,8 @@ const TheContactForm = () => {
       const data = await response.json();
 
       setMessage(data.message);
+
+      dispatch(addEmail(email));
 
       setEmail({ name: '', email: '', message: '' });
     } catch (error) {

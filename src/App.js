@@ -1,28 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
 import TheContactForm from './components/TheContactForm';
 
+import { setEmails } from './store/emails/reducers';
+
 const App = () => {
-  const [allEmails, setAllEmails] = useState([]);
+  const allEmails = useSelector((state) => state.email);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleGetAllEmails = async () => {
       const url = '/.netlify/functions/get-emails';
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data, 'All');
-      setAllEmails(data.value);
+      dispatch(setEmails(data));
     };
     handleGetAllEmails();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
       <TheContactForm />
-      <ul>
+      <ul className="list">
         {allEmails.map((item) => (
-          <li key={item._id}>
+          <li className="list__item" key={item.name}>
             <div>
               <p>{item.name}</p>
               <p>{item.email}</p>

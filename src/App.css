@@ -1,0 +1,10 @@
+.list {
+  height: 200px;
+  margin-top: 30px;
+  list-style-type: none;
+  overflow: auto;
+}
+
+.list__item {
+  margin: 10px 0;
+}
