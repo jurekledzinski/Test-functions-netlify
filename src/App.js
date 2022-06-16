@@ -15,6 +15,7 @@ const App = () => {
       const url = '/.netlify/functions/get-emails';
       const response = await fetch(url);
       const data = await response.json();
+      console.log(data);
       dispatch(setEmails(data));
     };
     handleGetAllEmails();
@@ -25,7 +26,7 @@ const App = () => {
       <TheContactForm />
       <ul className="list">
         {allEmails.map((item) => (
-          <li className="list__item" key={item.name}>
+          <li className="list__item" key={item._id}>
             <div>
               <p>{item.name}</p>
               <p>{item.email}</p>
