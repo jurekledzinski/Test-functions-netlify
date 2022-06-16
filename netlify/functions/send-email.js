@@ -3,9 +3,11 @@ const connectDb = require('../../db/connectDb');
 const mongoose = require('mongoose');
 const Email = require('../../models/email');
 
+connectDb(process.env.REACT_APP_DB);
+
 exports.handler = async function (event) {
   const body = JSON.parse(event.body);
-  await connectDb(process.env.REACT_APP_DB);
+  //   await connectDb(process.env.REACT_APP_DB);
   console.log(mongoose.connection.readyState, 'Ready state open');
 
   const email = await Email.create(body);
