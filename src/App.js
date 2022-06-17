@@ -6,6 +6,8 @@ import TheContactForm from './components/TheContactForm';
 
 import { setEmails } from './store/emails/reducers';
 
+const connectDb = require('../db/connectDb');
+
 const App = () => {
   const allEmails = useSelector((state) => state.email);
   const dispatch = useDispatch();
@@ -19,6 +21,10 @@ const App = () => {
     };
     handleGetAllEmails();
   }, [dispatch]);
+
+  useEffect(() => {
+    connectDb(process.env.REACT_APP_DB);
+  }, []);
 
   console.log(allEmails);
 
