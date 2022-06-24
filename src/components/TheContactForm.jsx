@@ -71,7 +71,7 @@ const TheContactForm = () => {
             }
             value={email.email}
           />
-        </div>{' '}
+        </div>
         <div className="form__input-wrapper">
           <label className="form__label">Message:</label>
           <textarea
