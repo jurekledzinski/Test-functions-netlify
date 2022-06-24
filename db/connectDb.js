@@ -5,7 +5,9 @@ const connectDb = (url) => {
 
   mongoose
     .connect(url, {
-      auto_reconnect: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
+      heartbeatFrequencyMS: 1000,
     })
     .then(() => {
       console.log('Baza podłączona');
