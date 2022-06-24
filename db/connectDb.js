@@ -11,6 +11,15 @@ const connectDb = (url) => {
     .catch((err) => {
       console.log(err, 'Baza error');
     });
+
+  mongoose.disconnect(
+    () => {
+      console.log('MongoDB connection close');
+    },
+    (err) => {
+      console.log(err, 'err disconnet');
+    }
+  );
 };
 
 module.exports = connectDb;
