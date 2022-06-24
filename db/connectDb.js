@@ -16,6 +16,14 @@ const connectDb = (url) => {
       console.log(err, 'Baza error');
     });
 
+  mongoose.connection.on('connecting', function () {
+    console.log('Connecting setup...');
+  });
+
+  mongoose.connection.on('connected', function () {
+    console.log('Connected setup...');
+  });
+
   mongoose.connection.on('error', function () {
     console.log('Lost MongoDB connection error...');
   });
