@@ -7,6 +7,7 @@ console.log(mongoose.connection.readyState, 'Ready state get emails outside');
 
 exports.handler = async function (event) {
   console.log(mongoose.connection.readyState, 'Ready state get emails');
+  console.log(mongoose.connection.ConnectionStates, 'states connection');
   const allEmails = await Email.find({}).select('-__v');
   return {
     statusCode: 200,

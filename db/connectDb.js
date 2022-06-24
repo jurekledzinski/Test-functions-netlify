@@ -12,14 +12,9 @@ const connectDb = (url) => {
       console.log(err, 'Baza error');
     });
 
-  mongoose.disconnect(
-    () => {
-      console.log('MongoDB connection close');
-    },
-    (err) => {
-      console.log(err, 'err disconnet');
-    }
-  );
+  mongoose.connection.on('disconnected', function () {
+    console.log('Lost MongoDB connection...');
+  });
 };
 
 module.exports = connectDb;
