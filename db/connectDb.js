@@ -4,7 +4,11 @@ const connectDb = (url) => {
   console.log(url, 'url connectDb');
 
   mongoose
-    .connect(url, { useUnifiedTopology: true })
+    .connect(url, {
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 1000,
+      heartbeatFrequencyMS: 1000,
+    })
     .then(() => {
       console.log('Baza podłączona');
     })
