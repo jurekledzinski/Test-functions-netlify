@@ -3,7 +3,6 @@ const connectDb = require('../../db/connectDb');
 const Email = require('../../models/email');
 
 connectDb(process.env.REACT_APP_DB);
-console.log(process, 'zmienne');
 
 exports.handler = async function (event) {
   console.log(mongoose.connection.readyState, 'Ready state get emails');
