@@ -31,6 +31,10 @@ const connectDb = (url) => {
   mongoose.connection.on('reconnected', function () {
     console.log('reconnected...');
   });
+
+  mongoose.connection.on('disconnected', function () {
+    console.log('disconnected... handler');
+  });
 };
 
 module.exports = connectDb;

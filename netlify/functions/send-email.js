@@ -8,7 +8,27 @@ connectDb(process.env.REACT_APP_DB);
 exports.handler = async function (event) {
   const body = JSON.parse(event.body);
   //   await connectDb(process.env.REACT_APP_DB);
-  console.log(mongoose.connection.readyState, 'Ready state open');
+  console.log(mongoose.connection.readyState, 'Ready state sebd email');
+
+  mongoose.connection.on('connecting', function () {
+    console.log('Connecting setup handler e...');
+  });
+
+  mongoose.connection.on('connected', function () {
+    console.log('Connected setup handler e...');
+  });
+
+  mongoose.connection.on('error', function () {
+    console.log('Lost MongoDB connection error handler e...');
+  });
+
+  mongoose.connection.on('reconnected', function () {
+    console.log('reconnected... handler e');
+  });
+
+  mongoose.connection.on('disconnected', function () {
+    console.log('disconnected... handler e');
+  });
 
   await Email.create(body);
 

@@ -23,6 +23,10 @@ exports.handler = async function (event) {
     console.log('reconnected... handler');
   });
 
+  mongoose.connection.on('disconnected', function () {
+    console.log('disconnected... handler');
+  });
+
   const allEmails = await Email.find({}).select('-__v');
   return {
     statusCode: 200,
